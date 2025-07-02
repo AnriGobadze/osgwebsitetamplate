@@ -1,6 +1,4 @@
-// layout.js
 document.addEventListener('DOMContentLoaded', () => {
-    // Function to fetch and inject HTML components
     const loadComponent = async (componentPath, targetId) => {
         const targetElement = document.getElementById(targetId);
         if (!targetElement) return;
@@ -16,16 +14,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Load header and footer components
     const loadLayout = async () => {
         await loadComponent('nav.html', 'main-header');
         await loadComponent('footer.html', 'main-footer');
         
-        // After loading layout, initialize any scripts that depend on them
-        // We can call main script initializers here if needed, ensuring
-        // the elements exist before the scripts try to access them.
-        if (typeof initializePage !== 'undefined') {
-            initializePage();
+        if (document.body.classList.contains('home-page')) {
+            if (typeof startHomepageAnimation !== 'undefined') {
+                startHomepageAnimation();
+            }
+        } else {
+            // MODIFICATION IS HERE: Added a dynamic entrance for other pages
+            const navBar = document.querySelector('.navbar');
+            if (navBar) {
+                navBar.classList.add('scrolled');
+                gsap.fromTo('.logo', 
+                    { y: -30, opacity: 0 }, 
+                    { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }
+                );
+                gsap.fromTo('.nav-links a',
+                    { y: -30, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1, ease: 'elastic.out(1, 0.4)', stagger: 0.07, delay: 0.2 }
+                );
+            }
+            if (typeof initializePage !== 'undefined') {
+                initializePage();
+            }
         }
     };
 

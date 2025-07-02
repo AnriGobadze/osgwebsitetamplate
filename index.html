@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Experience the finest authentic flavors and modern culinary creations at The Golden Fork restaurant.">
     <title>The Golden Fork - Home</title>
-        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -16,7 +16,11 @@
     <header id="main-header"></header>
 
     <main>
-        <section class="hero-section reveal">
+        <section class="hero-section">
+            <svg id="wavy-line-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path d="M0,160 C240,110 480,230 720,220 S960,100 1200,120 S1440,190 1440,190" />
+            </svg>
+
             <div class="hero-content">
                 <h1>Authentic Flavors, Modern Dining</h1>
                 <p>Experience the finest culinary creations at The Golden Fork.</p>
@@ -26,7 +30,10 @@
     </main>
     
     <div id="main-footer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="animation.js"></script> 
     <script src="layout.js"></script> 
     <script src="script.js"></script>
 </body>
